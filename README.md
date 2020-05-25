@@ -15,3 +15,5 @@ An example &amp; class for fps(first person shooting) in p5js.
 ## Warning & To do
 - This example only detects square object (don't care depth(z-axis))
   - [ ] make rectengular hitbox detection
+- This example only detects when camera not moved
+  - [ ] generalize detection function with any camera position
