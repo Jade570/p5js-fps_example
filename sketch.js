@@ -81,6 +81,7 @@ function draw() {
 
 
 function keyPressed() {
+  //movement key input
   if (key == " ") {
     if (jump_toggle == false) {
       jump_toggle = true;
@@ -104,6 +105,7 @@ function keyPressed() {
 
 
 function keyReleased() {
+  //finish movement key input
   if (key == 'w') {
     forward = false;
   }
