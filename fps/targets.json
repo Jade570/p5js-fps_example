@@ -2,15 +2,13 @@
 		"appear_time": 0,
 		"pan": 0,
 		"tilt": 0,
-		"rad": 0.5,
-		"width" : 50,
-		"texture" : 1
+		"rad": 1,
+		"width" : 50
 },
 {
 		"appear_time": 0,
 		"pan": 0,
 		"tilt": 10,
 		"rad": 0.5,
-		"width" : 50,
-		"texture" : 1
+		"width" : 50
 }]
