@@ -18,9 +18,10 @@ function setup() {
   cam_dz = 0;
   pan = 0;
   tilt = 0;
+  updateCamCenter();
 
   //aim point set-up
-  aim_rad = (-cam_z) / 10;
+  aim_rad = (-cam_z) / 10 ;
 
   //load JSON datas into target objects
   for (let i = 0; i < Object.keys(json).length; i++) {
@@ -47,10 +48,11 @@ function draw() {
   }
 
   //camera set-up
-  updateCamCenter();
   camera(cam_x, cam_y, cam_z, cam_cx, cam_cy, cam_cz, 0, -1, 0);
   pan += radians(movedX) / sensitivity;
   tilt -= radians(movedY) / sensitivity;
+  updateCamCenter();
+  handleUserInput();
 
   //aimpoint set-up
   push();
@@ -59,7 +61,6 @@ function draw() {
   noStroke();
   sphere(0.5, 4, 4);
   pop();
-
 
   //change sensitivity (by UP/DOWN arrows)
   if (keyIsPressed) {
@@ -77,6 +78,46 @@ function draw() {
   }
   sensitivity_slider.value(16 - sensitivity);
 }
+
+
+function keyPressed() {
+  if (key == " ") {
+    if (jump_toggle == false) {
+      jump_toggle = true;
+      t0 = millis();
+    }
+  }
+
+  if (key == 'w') {
+    forward = true;
+  }
+  if (key == 's') {
+    back = true;
+  }
+  if (key == 'a') {
+    left = true;
+  }
+  if (key == 'd') {
+    right = true;
+  }
+}
+
+
+function keyReleased() {
+  if (key == 'w') {
+    forward = false;
+  }
+  if (key == 's') {
+    back = false;
+  }
+  if (key == 'a') {
+    left = false;
+  }
+  if (key == 'd') {
+    right = false;
+  }
+}
+
 
 function mouseClicked() {
   //check detection
